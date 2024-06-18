@@ -7,9 +7,15 @@ import {
   Col
 } from 'react-bootstrap';
 
-import { getMe, deleteBook } from '../utils/API';
+import { getMe, deleteBook } from '../utils/api';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
+// import { useParams } from'react-router-dom';
+
+// Uncomment import statements below after building queries and mutations
+// import { useQuery, useMutation } from '@apollo/client';
+// import { CREATE_VOTE } from '../utils/mutations';
+// import { QUERY_MATCHUPS } from '../utils/queries';
 
 const SavedBooks = () => {
   const [userData, setUserData] = useState({});
@@ -73,7 +79,7 @@ const SavedBooks = () => {
 
   return (
     <>
-      <div fluid className="text-light bg-dark p-5">
+      <div className="fluid text-light bg-dark p-5">
         <Container>
           <h1>Viewing saved books!</h1>
         </Container>
@@ -87,8 +93,8 @@ const SavedBooks = () => {
         <Row>
           {userData.savedBooks.map((book) => {
             return (
-              <Col md="4">
-                <Card key={book.bookId} border='dark'>
+              <Col md="4" key={book.bookId}> {/* Move the key prop here */}
+                <Card border='dark'>
                   {book.image ? <Card.Img src={book.image} alt={`The cover for ${book.title}`} variant='top' /> : null}
                   <Card.Body>
                     <Card.Title>{book.title}</Card.Title>
