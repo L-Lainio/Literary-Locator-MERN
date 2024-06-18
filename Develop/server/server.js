@@ -17,6 +17,14 @@ const server = new ApolloServer({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+// GET request for ALL reviews
+app.get('/api/reviews', (req, res) => {
+  // Log our request to the terminal
+  console.info(`${req.method} request received to get reviews`);
+
+  // Sending all reviews to the client
+  return res.status(200).json(reviews);
+});
 // if we're in production, serve client/build as static assets
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '../client/build')));
