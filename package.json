@@ -1,0 +1,24 @@
+{
+  "name": "literary-locator-mern",
+  "version": "1.0.0",
+  "description": "google api book search engine client",
+  "main": "index.js",
+  "scripts": {
+    "test": "lint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L-Lainio/Literary-Locator-MERN.git"
+  },
+  "author": "Lora Lainio",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/L-Lainio/Literary-Locator-MERN/issues"
+  },
+  "homepage": "https://github.com/L-Lainio/Literary-Locator-MERN#readme",
+  "dependencies": {
+    "@apollo/client": "^3.10.5",
+    "@apollo/server": "^4.10.4",
+    "graphql": "^16.8.2"
+  }
+}

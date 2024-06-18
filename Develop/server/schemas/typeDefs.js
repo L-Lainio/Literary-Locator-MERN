@@ -1,17 +1,47 @@
 const typeDefs = `
-  # Define which fields are accessible from the Class model
-  type Class {
-    _id: ID
-    name: String
-    building: String
-    creditHours: Int
-  }
+    type Book {
+        _id: ID!
+        authors: [String]
+        description: String!
+        bookId: String!
+        image: String
+        link: String
+        title: String!
+    }
 
-  # Define which queries the front end is allowed to make and what data is returned
-  type Query {
-    classes: [Class]
-    class: Class
-  }
+    type User {
+        _id: ID!
+        username: String!
+        email: String!
+        password: String!
+        savedBooks: [Book]
+    }
+
+    type Auth {
+        token: String!
+        user: User
+    }
+
+    input BookArrayInput {
+        authors: [String]
+        description: String!
+        bookId: String!
+        image: String
+        link: String
+        title: String!
+    }
+
+    type Query {
+        me(_id: String, username: String): User
+    }
+
+    type Mutation {
+        createUser(username: String!, email: String!, password: String!): Auth
+        login(email: String!, password: String!): Auth
+        saveBook(content: BookArrayInput!): User
+        deleteBook(bookId: String!): User
+    }
 `;
 
+// Export the GraphQL schema definition
 module.exports = typeDefs;
