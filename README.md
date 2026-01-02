@@ -186,10 +186,4 @@ Open to collaboration, if you choose to do so open an issue and modify any chang
 
 NOTICE: This application is covered under the MIT License
 
-## Questions
 
-Have additional questions? Click the links below to reach me through my GitHub account or Email address.
-
-[Link to Github](https://github.com/L-Lainio)
-
-<a href="mailto:arollainio@gmail.com">arollainio@gmail.com</a>
