@@ -1,8 +1,10 @@
+// Load environment variables
+require('dotenv').config();
+
 // Importing necessary modules and dependencies
 const express = require('express');
 const path = require('path');
 const db = require('./config/connection');
-const routes = require('./routes');
 const { ApolloServer } = require('@apollo/server');
 const { expressMiddleware } = require('@apollo/server/express4');
 const { authMiddleware } = require('./utils/auth');
@@ -43,9 +45,6 @@ const ServerOfApollo = async () => {
       res.sendFile(path.join(__dirname, '../client/dist/index.html'));
     });
   }
-
-  // Don't need to use these routes anymore as the app is converted from RESTful to GraphQL
-  // app.use(routes);
 
   // Connecting to MongoDB and starting the Express server once the database is open
   db.once('open', () => {
